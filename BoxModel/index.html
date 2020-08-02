@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- <div class="container">
+    <h1 id="boxA">A</h1>
+    <h1 id="boxB">B</h1>
+    <h1 id="boxC">C</h1>
+    <h1 id="boxD">D</h1>
+    <h1 id="boxE">E</h1>
+    </div> -->
+
+    <div id="demo">
+        <h1>The XMLHttpRequest Object</h1>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+        </div>
+        
+        <script>
+        function loadDoc() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("demo").innerHTML =
+              this.responseText;
+            }
+          };
+          xhttp.open("GET", "http://localhost:8080/readfile", true);
+          xhttp.send();
+        }
+        </script>
+
+        <input type="file" name="inputfile" id="inputfile"> <br>
+
+        <pre id="output"></pre>
+
+        <!-- <script type="text/javascript">
+            document.getElementById("inputfile").addEventListener('change', function() {
+                var fr = new FileReader();
+                fr.onload = function() {
+                    document.getElementById('output').textContent = fr.result;
+                }
+
+                fr.readAsText(this.files[0]);
+                //fr.readAsText("Users/thienle/Downloads/orm_pom.txt")
+            })
+
+            var fr = new FileReader();
+            fr.onload = function() {
+                document.getElementById('output').innerHTML = "Hello";
+            }
+        </script> -->
+</body>
+</html>

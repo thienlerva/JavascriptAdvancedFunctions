@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learning JavaScript</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+	<div class="header">
+		<h1 id="heading"> Learing JavaScript</h1>
+		<p>July 17 2019</p>
+
+		
+	</div>
+
+	<div class="container">
+		
+
+		<button onclick="doClick()">Print</button><br>
+		<button onclick="changeText1(this)">Click Me</button><br>
+		<button onclick="changeText()">Click Me</button><br>
+		<button onmouseout="clearDate()" onmouseover="showDate()">Show Date</button>
+
+		<h1 id="time"></h1>
+	</div>
+
+	<form name="myForm" onsubmit="return validateForm()">
+		<div>
+			<label>First Name</label>
+			<input type="text" name="firstName" id="firstName">
+		</div><br>
+
+		<div>
+			<label>Last Name</label>
+			<input type="text" name="lastName" id="lastName">
+		</div><br>
+
+		<div>
+			<label>Background</label>
+			<select name="backgound" id="backgound" onchange="changeBackground(this)">
+				<option value="red">Red</option>
+				<option value="blue">Blue</option>
+				<option value="green">Green</option>
+			</select>
+		</div><br>
+		<input type="submit" value="Submit">
+
+	</form>
+
+	<script>
+
+		function validateForm() {
+			var firstName = document.forms["myForm"]["firstName"].value;
+
+			console.log(firstName);
+			if (firstName == null || firstName == "") {
+				alert("First name is requried");
+				return false;
+			}
+		}
+
+		function changeBackground(x) {
+			console.log(x.value);
+			var body = document.getElementById('body');
+			body.style.backgroundColor = x.value;
+		}
+
+		function doClick() {
+			//alert('You clicked');
+			window.print();
+		}
+
+		function changeText1(id) {
+			id.innerHTML = 'You Clicked!';
+		}
+
+		function changeText() {
+			var heading = document.getElementById('heading');
+			heading.innerHTML = 'You Clicked';
+		}
+
+		function showDate() {
+			var time = document.getElementById('time');
+			time.innerHTML = Date();
+		}
+
+		function clearDate() {
+			var time = document.getElementById('time');
+			time.innerHTML = '';
+		}
+
+
+		var number1 = 35;
+		var number2 = 40;
+		
+		var colors = ['red', 'blue', 'green'];
+		colors.push('purple');
+
+		//alert(colors.length);
+		//alert(colors.sort());
+		//alert(colors.reverse());
+
+		// for (let i = 0; i < 10; i++) {
+		// 	console.log('Im for loop ' + i);
+		// }
+
+		// var i = 0;
+		// while (i < 20) {
+		// 	console.log('Im while loop: ' + i);
+		// 	i++;
+		// }
+
+		var numbers = [33, 54, 76, 34, 2, 6];
+
+		// numbers.forEach(function(number) {
+		// 	console.log(number);
+		// });
+
+		// === compare data type and content
+		var var1 = 3;
+		var var2 = '3';
+
+		// var compare = var1 === var2 ? 'This is same' : 'This is not same';
+		// console.log(compare);
+
+		//var fruit = 'apple';
+
+		// switch(fruit) {
+		// 	case 'banana':
+		// 		alert('I have banana');
+		// 		break;
+		// 	case 'apple':
+		// 		alert('I love apples');
+		// 		break;
+		// 	default:
+		// 		alert("I Love all other fruit");
+		// 		break;
+		// }
+
+		// Object Literal
+		// var person = {
+		// 	firstName: 'Brad',
+		// 	lastName: 'Traversy',
+		// 	age: 34,
+		// 	children: ['Briana', 'Nicholas'],
+		// 	address: {
+		// 		street: '555 Something st',
+		// 		city: 'Boston',
+		// 		state: 'MA'
+		// 	},
+
+		// 	fullName: function() {
+		// 		return this.firstName + this.lastName;
+		// 	}
+		// }
+
+		// console.log(person.firstName);
+		// console.log(person.children[1]);
+		// console.log(person.address);
+		// console.log(person.fullName());
+
+		// Object Constructor
+
+		// 
+
+		// constructor Pattern
+		// function Fruit(name, color, shape) {
+		// 	this.name = name;
+		// 	this.color = color;
+		// 	this.shape = shape;
+
+		// 	this.describe = function {
+		// 		return 'A ' + this.name + ' is the color ' + this.color + ' and is the shape ' + this.shape;
+		// 	}
+		// }
+
+		// var apple = new Fruit('apple', 'red', 'round');
+		// console.log(apple);
+
+		// var melon = new Fruit('melon', 'green', 'round');
+		// console.log(melon.describe());
+
+	</script>
+</body>
+</html>
